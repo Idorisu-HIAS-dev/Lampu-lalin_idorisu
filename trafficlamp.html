@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Lamp</title>
+</head>
+<style>
+    .kontainer {
+        background-image: url('bgtraffic.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        min-height: 100vh;
+        margin: 0;
+        text-align: center;
+        /* background-color: khaki; */
+        padding: 2em;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .lampu-traffic {
+        background-color: #333;
+        width: 120px;
+        margin: 0 auto 2em;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .lampu {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 15px auto;
+        transition: opacity 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .lampu.merah {
+
+        background-color: rgb(152, 29, 29);
+
+
+    }
+
+    .lampu.kuning {
+
+        background-color: rgb(154, 154, 15);
+    }
+
+    .lampu.hijau {
+
+        background-color: rgb(13, 128, 13);
+    }
+
+    .lampu.nyala {
+        opacity: 1;
+        box-shadow: 0 0 30px currentColor;
+        animation: berkedip 0.5s ease-in-out;
+    }
+
+    .lampu.merah.nyala {
+        background-color: red;
+        box-shadow: 0 0 20px red;
+    }
+
+    .lampu.kuning.nyala {
+        background-color: yellow;
+        box-shadow: 0 0 20px gold;
+    }
+
+    .lampu.hijau.nyala {
+        background-color: lime;
+        box-shadow: 0 0 20px yellowgreen;
+    }
+
+    @keyframes berkedip {
+
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+    }
+
+    .kontrol,
+    .kontrol-manual {
+        margin: 3em 0;
+    }
+
+    .tombol {
+        padding: 10px 20px;
+        margin: 5px;
+    }
+</style>
+
+<body>
+    <div class="kontainer">
+        <h2></h2>
+        <div class="lampu-traffic">
+            <div class="lampu merah" id="lampu-merah"></div>
+            <div class="lampu kuning" id="lampu-kuning"></div>
+            <div class="lampu hijau" id="lampu-hijau"></div>
+        </div>
+        <div class="kontrol">
+            <button class="tombol" id="mulai">Mulai</button>
+            <button class="tombol" id="berhenti">Berhenti</button>
+        </div>
+
+        <div class="kontrol-manual">
+            <button class="tombol manual" id="btn-merah">Merah</button>
+            <button class="tombol manual" id="btn-kuning">Kuning</button>
+            <button class="tombol manual" id="btn-hijau">Hijau</button>
+        </div>
+        <p id="status">status:mati</p>
+        <script src="trafficlamp.js"></script>
+    </div>
+
+</body>
+
+</html>
